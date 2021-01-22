@@ -12,7 +12,7 @@ $AutoddiscoverURI = $((Get-IntraOrganizationConnector)[-1].DiscoveryEndpoint.Abs
 # desktop/MS-Logs+Timestamp
 $ts = Get-Date -Format yyyyMMdd_hhmmss
 $DesktopPath = ([Environment]::GetFolderPath('Desktop'))
-$logsPATH =mkdir "$DesktopPath\MS-Logs\EXO_LOGS_$ts"
+$logsPATH = mkdir "$DesktopPath\MS-Logs\EXO_LOGS_$ts"
 
 Start-Transcript "$logsPATH\EXO_LOGS_$ts.txt"
 $FormatEnumerationLimit = -1
@@ -41,5 +41,5 @@ Get-InboundConnector | fl
 
 Stop-Transcript
 
-Compress-Archive -Path "$DesktopPath\MS-Logs\EXO_LOGS_$ts.zip" -DestinationPath $destination # Zip Logs
+Compress-Archive -Path $logsPATH -DestinationPath "$DesktopPath\MS-Logs\EXO_LOGS_$ts.zip" -Force # Zip Logs
 Invoke-Item $DesktopPath\MS-Logs # open file manager
