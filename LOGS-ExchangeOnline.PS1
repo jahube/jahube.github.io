@@ -1,5 +1,5 @@
 # REMOTE-Mailbox / migrated (synced with onprem) - Thank You !
-$CloudMailbox = "Any@Remote-Mailbox.com" 
+$CloudMailbox = "Any@Remote-Mailbox.com"  # <-- Modify
 
 # Auto - select + run to verify
 $MigrationEndpoint = (Get-MigrationEndpoint | ? {$_.identity -match "Hybrid"}).remoteserver ; $EwsEndpointURI = 'https://' + $MigrationEndpoint +  '/ews/exchange.asmx'; $EwsEndpointURI # Onprem EWS
