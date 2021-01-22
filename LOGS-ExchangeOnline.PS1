@@ -40,9 +40,6 @@ Get-OutboundConnector | fl
 Get-InboundConnector | fl
 
 Stop-Transcript
-###### END TRANSCRIPT ######################
-$destination = "$DesktopPath\MS-Logs\EXO_LOGS_$ts.zip"
-Add-Type -assembly “system.io.compression.filesystem”
-[io.compression.zipfile]::CreateFromDirectory($logsPATH, $destination) # ZIP
+
+Compress-Archive -Path "$DesktopPath\MS-Logs\EXO_LOGS_$ts.zip" -DestinationPath $destination # Zip Logs
 Invoke-Item $DesktopPath\MS-Logs # open file manager
-###### END ZIP Logs ########################
