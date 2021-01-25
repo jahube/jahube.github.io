@@ -1,4 +1,5 @@
-﻿$HMBX = $(Get-OrganizationConfig).RootPublicFolderMailbox.HierarchyMailboxGuid ;
+﻿$HMBX = @() ;
+$HMBX = $(Get-OrganizationConfig).RootPublicFolderMailbox.HierarchyMailboxGuid ;
 
 ###########################################################################################################################################################
                               
