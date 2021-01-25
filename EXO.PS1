@@ -24,7 +24,7 @@ Get-PartnerApplication | fl
 
 $MBX = Get-Mailbox $CloudMailbox -EA silentlycontinue ; 
 IF ((!($MBX)) -or ($MBX.isdirsynced -ne 'true')) { Write-host "$CloudMailbox invalid" -F yellow ; $MBX = (Get-Mailbox | where {$_.isdirsynced -eq 'true' })[-1] } #fallback if $CloudMailbox is invalid ; 
-$CloudMailbox = $($MBX.primarysmtpaddress) 
+$CloudMailbox = "$($MBX.Userprincipalname)"
 $MBX | fl ; (Get-MailUser)[-1] | fl
 
 write-host "Test-OAuthConnectivity"
