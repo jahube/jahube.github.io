@@ -1,4 +1,5 @@
-      start-transcript -verbose
+#
+start-transcript -verbose
 
 $user = ""  # modify AFFECTED@USER.com
 
